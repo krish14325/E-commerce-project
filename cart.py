@@ -57,11 +57,11 @@ def viewcart(current_user):
                 part_id = parts[0]
                 part_name = parts[1]
                 part_price = parts[2]
-                part_stock = parts[3]
+                part_quantity = parts[3]
                 print("ID :",part_id)
                 print("Name :",part_name)
                 print("Price :",part_price)
-                print("Quantity :",part_stock)
+                print("Quantity :",part_quantity)
                 print("..................................")
             print("Cart Finished")
     except FileNotFoundError:
