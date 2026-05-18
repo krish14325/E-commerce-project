@@ -45,3 +45,23 @@ def add_to_cart(current_user):
         print("Product Added Successfully...")
     elif not product_exist:
         print("Product Not Found")
+def viewcart(current_user):
+    try:
+        with open(f"{current_user}_user.txt","r") as f:
+            data = f.readlines()
+            for i in data:
+                parts = i.strip().split(" --> ")
+                part_id = parts[0]
+                part_name = parts[1]
+                part_price = parts[2]
+                part_stock = parts[3]
+            print("..................................")
+            print("These Are The Items In Your Cart")
+            print("..................................")
+            print("ID :",part_id)
+            print("Name :",part_name)
+            print("Price :",part_price)
+            print("Stock :",part_stock)
+            print("Cart Finished")
+    except FileNotFoundError:
+        print("File Not Found")
