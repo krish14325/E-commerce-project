@@ -1,2 +1,2 @@
 1 --> Laptop --> 35000 --> 6
-2 --> Play Station --> 45000 --> 11
+2 --> Play Station --> 45000 --> 7
