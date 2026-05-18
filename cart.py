@@ -66,4 +66,3 @@ def viewcart(current_user):
             print("Cart Finished")
     except FileNotFoundError:
         print("File Not Found")
-viewcart("Krishna")
