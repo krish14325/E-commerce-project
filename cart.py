@@ -77,4 +77,52 @@ def totalbill(current_user):
             bill = (parts_price*parts_Quantity)
             total_bill += bill
         print("Your Total Bill Was :",total_bill)
+def removeproduct(current_user):
+    newlist = []
+    try:
+        with open(f"{current_user}_user.txt","r")as f:
+            data = f.readlines()
+            print("..................................")
+            print("Which Product Do You Want To Remove")
+            print("...................................")
+            for i in data:
+                print(i)
+            choice = input("Enter Product Id :" )
+            with open(f"{current_user}_user.txt","r") as f:
+                data = f.readlines()
+                for i in data:
+                    parts = i.strip().split(" --> ")
+                    parts_id = parts[0]
+                    parts_name = parts[1]
+                    parts_price = parts[2]
+                    parts_Quantity = int(parts[3])
+                    if choice == parts_id:
+                        products_list =[]
+                        with open("products.txt","r") as f:
+                            data = f.readlines()
+                            for i in data:
+                                parts = i.strip().split(" --> ")
+                                parts_id = parts[0]
+                                parts_name = parts[1]
+                                parts_price = parts[2]
+                                parts_stock = (int(parts[3]))
+                                if choice == parts_id:
+                                    return_stock = parts_Quantity + parts_stock
+                                    products_list.append(f"{parts_id} --> {parts_name} --> {parts_price} --> {return_stock}\n")
+                                else:
+                                    products_list.append(f"{parts_id} --> {parts_name} --> {parts_price} --> {parts_stock}\n")
+                        with open("products.txt" , "w") as f:
+                            f.writelines(products_list)
+                            continue
+                    else:
+                        newlist.append(f"{parts_id} --> {parts_name} --> {parts_price} --> {parts_Quantity}\n")
+            with open(f"{current_user}_user.txt","w") as f:
+                f.writelines(newlist)
+    except FileNotFoundError:
+        print("File Not Found")
+
+        
+                     
+                     
+             
 
