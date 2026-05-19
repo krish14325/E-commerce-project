@@ -66,3 +66,15 @@ def viewcart(current_user):
             print("Cart Finished")
     except FileNotFoundError:
         print("File Not Found")
+def totalbill(current_user):
+    total_bill = 0
+    with open(f"{current_user}_user.txt","r")as f:
+        data = f.readlines()
+        for i in data:
+            parts = i.strip().split(" --> ")
+            parts_price = int(parts[2])
+            parts_Quantity = int(parts[3])
+            bill = (parts_price*parts_Quantity)
+            total_bill += bill
+        print("Your Total Bill Was :",total_bill)
+

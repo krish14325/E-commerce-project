@@ -3,6 +3,7 @@ from users import login
 from products import viewproducts
 from cart import add_to_cart
 from cart import viewcart
+from cart import totalbill
 while True:
     print("1.Register\n2.Login\n3.Exit")
     choice =input("Enter Option : ")
@@ -14,7 +15,7 @@ while True:
             while True:
                 print(f"Hello {current_user}")
                 print("........MENU.......")
-                print("1.View Products\n2.Add To Cart\n3.View Cart\n4.Log Out")
+                print("1.View Products\n2.Add To Cart\n3.View Cart\n4.Total Bill\n5.Log Out")
                 choice = input("Enter Option : ")
                 if choice == "1":
                     viewproducts()
@@ -23,6 +24,8 @@ while True:
                 elif choice == "3":
                     viewcart(current_user)
                 elif choice == "4":
+                    totalbill(current_user)
+                elif choice == "5":
                     print("Log Out Sucessfully")
                     break
     elif choice == "3":
