@@ -33,3 +33,21 @@ def viewproducts():
             print("Name :", parts[1])
             print("Price :", parts[2])
             print("Stock :", parts[3])
+def searchproducts():
+    products =input("Search : ")
+    product_found = False
+    try:
+        with open("products.txt","r") as f:
+            data =f.readlines()
+        for i in data:
+            parts =i.strip().split(" --> ")
+            if products.lower() == parts[1].lower():
+                product_found = True
+                break
+        if product_found:
+            print("Results :-")
+            print(i)
+        else:
+            print("Product Not Found")
+    except FileNotFoundError:
+        print("File Not Found")
